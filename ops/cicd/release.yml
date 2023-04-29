@@ -10,7 +10,8 @@ resources:
     branch: main
     trigger:
       branches:
-        include: main
+        include:
+        - main
 stages: 
 - stage: release_stage
   displayName: release stage
