@@ -34,7 +34,7 @@ stages:
               workingDirectory:  $(Pipeline.Workspace)/buildPipelineResource/iac
           - task: AzureFileCopy@5
             inputs:
-              SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist/
+              SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist/*
               azureSubscription: devops-101
               Destination: AzureBlob
               storage: actumdevops101 # TODO: PARAMETERIZE
