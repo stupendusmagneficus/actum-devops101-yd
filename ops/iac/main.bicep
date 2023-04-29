@@ -1,3 +1,5 @@
+// TODO: Consider adding static website enablement https://github.com/Azure/bicep/discussions/10337
+
 param storageAccounts_name string = 'actumdevops101' // TODO: PARAMETERIZE
 param srorageAccounts_location string = 'eastus'
 

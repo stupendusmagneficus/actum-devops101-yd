@@ -4,7 +4,7 @@ function Header({ title }) {
 }
 
 export default function HomePage() {
-  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+  const names = ['Martin Dušek', 'Radek Zíma', 'Tomáš Vondráček'];
 
   const [likes, setLikes] = useState(0);
 
