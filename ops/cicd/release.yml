@@ -1,12 +1,12 @@
 name: release_pipeline
-pool: 
+pool:
   vmImage: ubuntu-latest
 trigger: none
 pr: none
 resources:
   pipelines:
   - pipeline: buildPipelineResource
-    source: build_pipeline 
+    source: build_pipeline
     branch: main
     trigger:
       branches:
@@ -16,7 +16,7 @@ stages:
 - stage: release_stage
   displayName: release stage
   jobs:
-  - deployment: release_job 
+  - deployment: release_job
     displayName: release job
     environment: dev
     strategy:
