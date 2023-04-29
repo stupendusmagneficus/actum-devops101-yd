@@ -32,3 +32,11 @@ stages:
               inlineScript: |
                 az deployment group create --resource-group devops-101 --template-file main.bicep
               workingDirectory:  $(Pipeline.Workspace)/buildPipelineResource/iac
+          - task: AzureFileCopy@4
+            inputs:
+              SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist
+              azureSubscription: devops-101
+              Destination: AzureBlob
+              storage: actumdevops101 # TODO: PARAMETERIZE
+              ContainerName: $web
+              CleanTargetBeforeCopy: true

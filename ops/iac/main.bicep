@@ -1,4 +1,4 @@
-param storageAccounts_name string = 'auctumdevops101'
+param storageAccounts_name string = 'actumdevops101' // TODO: PARAMETERIZE
 param srorageAccounts_location string = 'eastus'
 
 resource storageAccounts_resource 'Microsoft.Storage/storageAccounts@2022-09-01' = {
