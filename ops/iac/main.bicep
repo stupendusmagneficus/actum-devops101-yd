@@ -67,43 +67,6 @@ resource storageAccounts_blobServices 'Microsoft.Storage/storageAccounts/blobSer
   }
 }
 
-resource Microsoft_Storage_storageAccounts_fileServices_storageAccounts_name_default 'Microsoft.Storage/storageAccounts/fileServices@2022-09-01' = {
-  parent: storageAccounts_resource
-  name: 'default'
-  properties: {
-    protocolSettings: {
-      smb: {}
-    }
-    cors: {
-      corsRules: []
-    }
-    shareDeleteRetentionPolicy: {
-      enabled: true
-      days: 7
-    }
-  }
-}
-
-resource Microsoft_Storage_storageAccounts_queueServices_storageAccounts_name_default 'Microsoft.Storage/storageAccounts/queueServices@2022-09-01' = {
-  parent: storageAccounts_resource
-  name: 'default'
-  properties: {
-    cors: {
-      corsRules: []
-    }
-  }
-}
-
-resource Microsoft_Storage_storageAccounts_tableServices_storageAccounts_name_default 'Microsoft.Storage/storageAccounts/tableServices@2022-09-01' = {
-  parent: storageAccounts_resource
-  name: 'default'
-  properties: {
-    cors: {
-      corsRules: []
-    }
-  }
-}
-
 resource storageAccounts_name_default_web 'Microsoft.Storage/storageAccounts/blobServices/containers@2022-09-01' = {
   parent: storageAccounts_blobServices
   name: '$web'
