@@ -1,4 +1,4 @@
-name: build-pipeline # Pipeline run number.
+name: build_pipeline # Pipeline run number.
 pool: # Pool where jobs in this pipeline will run unless otherwise specified.
   vmImage: ubuntu-latest # Run on Azure hosted ubuntu agent
 # parameters: [ parameter ] # Pipeline template parameters.
@@ -16,7 +16,7 @@ pool: # Pool where jobs in this pipeline will run unless otherwise specified.
   # packages: [ package ] # List of package resources.
 #lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 stages: # Required. Stages are groups of jobs that can run without human intervention.
-- stage: build-stage # Required as first property. ID of the stage.
+- stage: build_stage # Required as first property. ID of the stage.
   displayName: build stage # Human-readable name for the stage.
   # pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
   # dependsOn: string | [ string ] # Any stages which must complete before this one.
@@ -25,7 +25,7 @@ stages: # Required. Stages are groups of jobs that can run without human interve
   # lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
   # templateContext: # Stage related information passed from a pipeline when extending a template.
   jobs: # [ job | deployment | template ] # Specifies the jobs that make up the work of a stage.
-  - job: build-job # Required as first property. ID of the job.
+  - job: build_job # Required as first property. ID of the job.
     displayName: build job # Human-readable name for the job.
     # dependsOn: string | [ string ] # Any jobs which must complete before this one.
     # condition: string # Evaluate this condition expression to determine whether to run this job.
