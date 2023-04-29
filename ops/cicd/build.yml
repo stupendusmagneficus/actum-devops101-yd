@@ -50,9 +50,6 @@ stages: # Required. Stages are groups of jobs that can run without human interve
       inputs:
         command: ci
         workingDir: src # string. Working folder that contains package.json. 
-    - task: Npm@1
+    - script: |
+        npm run e2e:headless
       displayName: npm cypress e2e:headless
-      inputs:
-        command: custom
-        customCommand: run e2e:headless
-        workingDir: src
