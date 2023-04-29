@@ -51,5 +51,5 @@ stages: # Required. Stages are groups of jobs that can run without human interve
         workingDir: src # string. Working folder that contains package.json. 
     - task: Npm@1
       inputs:
-        customCommand: e2e:headless
+        command: e2e:headless
         workingDir: src # string. Working folder that contains package.json. 
