@@ -1,8 +1,8 @@
 name: build-pipeline # Pipeline run number.
 pool: # Pool where jobs in this pipeline will run unless otherwise specified.
   vmImage: ubuntu-latest # Run on Azure hosted ubuntu agent
-parameters: [ parameter ] # Pipeline template parameters.
-variables: variables | [ variable ] # Variables for this pipeline.
+# parameters: [ parameter ] # Pipeline template parameters.
+# variables: variables | [ variable ] # Variables for this pipeline.
 # appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
 # trigger: none | trigger | [ string ] # Continuous integration triggers. - Trigger on any change 
 # pr: none | pr | [ string ] # Pull request triggers. - Trigger on any pr
