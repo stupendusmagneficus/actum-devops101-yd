@@ -1,0 +1,55 @@
+name: build-pipeline # Pipeline run number.
+pool: # Pool where jobs in this pipeline will run unless otherwise specified.
+  vmImage: ubuntu-latest # Run on Azure hosted ubuntu agent
+parameters: [ parameter ] # Pipeline template parameters.
+variables: variables | [ variable ] # Variables for this pipeline.
+# appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
+# trigger: none | trigger | [ string ] # Continuous integration triggers. - Trigger on any change 
+# pr: none | pr | [ string ] # Pull request triggers. - Trigger on any pr
+# schedules: [ cron ] # Scheduled triggers.
+# resources: # Containers and repositories used in the build.
+  # builds: [ build ] # List of build resources referenced by the pipeline.
+  # containers: [ container ] # List of container images.
+  # pipelines: [ pipeline ] # List of pipeline resources.
+  # repositories: [ repository ] # List of repository resources.
+  # webhooks: [ webhook ] # List of webhooks.
+  # packages: [ package ] # List of package resources.
+#lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+stages: # Required. Stages are groups of jobs that can run without human intervention.
+- stage: build-stage # Required as first property. ID of the stage.
+  displayName: build stage # Human-readable name for the stage.
+  # pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
+  # dependsOn: string | [ string ] # Any stages which must complete before this one.
+  # condition: string # Evaluate this condition expression to determine whether to run this stage.
+  # variables: variables | [ variable ] # Stage-specific variables.
+  # lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+  # templateContext: # Stage related information passed from a pipeline when extending a template.
+  jobs: # [ job | deployment | template ] # Specifies the jobs that make up the work of a stage.
+  - job: build-job # Required as first property. ID of the job.
+    displayName: build job # Human-readable name for the job.
+    # dependsOn: string | [ string ] # Any jobs which must complete before this one.
+    # condition: string # Evaluate this condition expression to determine whether to run this job.
+    # continueOnError: string # Continue running even on failure?
+    # timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+    # cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+    # variables: variables | [ variable ] # Job-specific variables.
+    # strategy: strategy # Execution strategy for this job.
+    # pool: string | pool # Pool where this job will run.
+    # container: string | container # Container resource name.
+    # services: # Container resources to run as a service container.
+      # string: string # Name/value pairs
+    # workspace: # Workspace options on the agent.
+      # clean: string # Which parts of the workspace should be scorched before fetching.
+    # uses: # Any resources required by this job that are not already referenced.
+      # repositories: [ string ] # Repository references.
+      # pools: [ string ] # Pool references.
+    # templateContext: # Job related information passed from a pipeline when extending a template.
+    steps: # [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
+    - task: Npm@1
+      inputs:
+        command: ci
+        workingDir: src # string. Working folder that contains package.json. 
+    - task: Npm@1
+      inputs:
+        customCommand: e2e:headless
+        workingDir: src # string. Working folder that contains package.json. 
