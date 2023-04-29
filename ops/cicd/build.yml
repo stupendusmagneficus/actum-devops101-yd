@@ -53,3 +53,4 @@ stages: # Required. Stages are groups of jobs that can run without human interve
     - script: |
         npm run e2e:headless
       displayName: npm cypress e2e:headless
+      workingDir: src
