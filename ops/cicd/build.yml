@@ -46,11 +46,13 @@ stages: # Required. Stages are groups of jobs that can run without human interve
     # templateContext: # Job related information passed from a pipeline when extending a template.
     steps: # [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
     - task: Npm@1
+      displayName: npm ci
       inputs:
         command: ci
         workingDir: src # string. Working folder that contains package.json. 
     - task: Npm@1
+      displayName: npm cypress e2e:headless
       inputs:
         command: custom
-        customCommand: e2e:headless
-        workingDir: src # string. Working folder that contains package.json. 
+        customCommand: run e2e:headless
+        workingDir: src
