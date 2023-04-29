@@ -1,6 +1,6 @@
 name: release_pipeline
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 trigger: none
 pr: none
 resources:
@@ -32,7 +32,7 @@ stages:
               inlineScript: |
                 az deployment group create --resource-group devops-101 --template-file main.bicep
               workingDirectory:  $(Pipeline.Workspace)/buildPipelineResource/iac
-          - task: AzureFileCopy@4
+          - task: AzureFileCopy@5
             inputs:
               SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist
               azureSubscription: devops-101
