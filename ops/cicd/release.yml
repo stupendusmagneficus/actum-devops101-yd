@@ -6,7 +6,7 @@ pr: none
 resources:
   pipelines:
   - pipeline: buildPipelineResource
-    source: build_pipeline
+    source: build pipeline
     branch: main
     trigger:
       branches:
