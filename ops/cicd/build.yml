@@ -58,8 +58,10 @@ stages: # Required. Stages are groups of jobs that can run without human interve
         npm run build
       displayName: npm next build
       workingDirectory: src
-    - publish: ops/iac/iac.bicep
+    - publish: ops/iac
       artifact: iac
+      displayName: publish iac
     - publish: src/.dist
-      artifact: app
+      artifact: dist
+      displayName: publish dist
       

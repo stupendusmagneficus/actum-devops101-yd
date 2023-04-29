@@ -1,0 +1,32 @@
+name: release_pipeline
+pool: 
+  vmImage: ubuntu-latest
+# parameters: [ parameter ] # Pipeline template parameters.
+# variables: variables | [ variable ] # Variables for this pipeline.
+resources:
+  pipelines:
+  - pipeline: buildPipelineResource
+    source: build_pipeline 
+    trigger:
+      branches:
+        include: main
+stages: 
+- stage: release_stage
+  displayName: release stage
+  jobs:
+  - deployment: release_job 
+    displayName: release job
+    environment: dev
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureCLI@2
+              displayName: az deployment
+              inputs:
+                azureSubscription: devops-101
+                scriptType: pscore
+                scriptLocation: inlineScript
+                inlineScript: |
+                  az deployment group create --resource-group devops-101 --template-file main.bicep
+                workingDirectory: buildPipelineResource/iac
