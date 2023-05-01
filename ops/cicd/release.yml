@@ -1,6 +1,4 @@
 name: release_pipeline
-variables:
-- name: storageAccountName
 pool:
   vmImage: windows-latest
 trigger: none

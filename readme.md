@@ -1,6 +1,8 @@
 1. Prerequisites for the demo
     - NodeJs https://nodejs.org/en/download
     - Visual Studio Code https://code.visualstudio.com/download
+1. 
+    - define storageAccountName variable for the release pipeline
 1. Resources used to prepare the demo
     - Create sample NextJS app
         - https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs
