@@ -1,7 +1,6 @@
 name: release_pipeline
 parameters:
 - name: storageAccountName
-  displayName: storage account name
   type: string
 pool:
   vmImage: windows-latest
