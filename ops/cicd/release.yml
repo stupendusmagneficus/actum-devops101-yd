@@ -40,6 +40,6 @@ stages:
               SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist/*
               azureSubscription: devops-101
               Destination: AzureBlob
-              storage: $(parameters.storageAccountName)
+              storage: $(storageAccountName)
               ContainerName: $web
               CleanTargetBeforeCopy: true
