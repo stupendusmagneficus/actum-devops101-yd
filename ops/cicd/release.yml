@@ -1,7 +1,6 @@
 name: release_pipeline
-parameters:
+variable:
 - name: storageAccountName
-  type: string
 pool:
   vmImage: windows-latest
 trigger: none
@@ -41,6 +40,6 @@ stages:
               SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist/*
               azureSubscription: devops-101
               Destination: AzureBlob
-              storage: ${{ parameters.storageAccountName }}
+              storage: $(parameters.storageAccountName)
               ContainerName: $web
               CleanTargetBeforeCopy: true
