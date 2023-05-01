@@ -4,15 +4,17 @@
     - GitHub account created https://github.com/
 1. Steps
     1. Fork repository https://github.com/mgjam/actum-devops101 into your own repository
-    1. Set `storageAccounts_name` in `ops/iac/main.parameters-dev.json`
-    1. Push your repository to GitHub
+        - Set `storageAccounts_name` in `ops/iac/main.parameters-dev.json`
+        - Set release pipeline's build resource pipeline source in `ops/cicd/release.yml`
     1. Get Access into https://dev.azure.com/mgatyas/DevOps%20101
     1. Create service connection to your repository
     1. Create build pipeline
+        - Name the pipeline to correspond to the build resource pipeline source in release pipeline definition
     1. Create release pipeline
         - Define storageAccountName variable for the release pipeline
+    1. Trigger or run the build pipeline
     1. Get Access into https://portal.azure.com/#@actum.cz/resource/subscriptions/71a1b525-14cd-44fa-bbb9-f58562281a35/overview
-    1. Enable static website hosting on created storage account
+    1. Enable static website hosting on your created storage account
 1. Resources used to prepare the demo
     - Create sample NextJS app
         - https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs
