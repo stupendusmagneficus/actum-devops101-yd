@@ -1,4 +1,8 @@
 name: release_pipeline
+parameters:
+- name: storageAccountName
+  displayName: storage account name
+  type: string
 pool:
   vmImage: windows-latest
 trigger: none
@@ -30,13 +34,14 @@ stages:
               scriptType: pscore
               scriptLocation: inlineScript
               inlineScript: |
-                az deployment group create --resource-group devops-101 --template-file main.bicep
+                az deployment group create --resource-group devops-101 --template-file main.bicep  --parameters `@main.parameters-dev.json
               workingDirectory:  $(Pipeline.Workspace)/buildPipelineResource/iac
           - task: AzureFileCopy@5
+            displayName: az copy dist
             inputs:
               SourcePath: $(Pipeline.Workspace)/buildPipelineResource/dist/*
               azureSubscription: devops-101
               Destination: AzureBlob
-              storage: actumdevops101 # TODO: PARAMETERIZE
+              storage: ${{ parameters.storageAccountName }}
               ContainerName: $web
               CleanTargetBeforeCopy: true
