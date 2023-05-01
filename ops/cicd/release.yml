@@ -1,5 +1,5 @@
 name: release_pipeline
-variable:
+variables:
 - name: storageAccountName
 pool:
   vmImage: windows-latest
