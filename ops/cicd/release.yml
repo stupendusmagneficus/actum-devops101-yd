@@ -6,7 +6,7 @@ pr: none
 resources:
   pipelines:
   - pipeline: buildPipelineResource
-    source: build pipeline
+    source: build pipeline YD
     branch: main
     trigger:
       branches:
